@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+  --gold: #C99B19;
+  --navy: #213555;
+  --deep-blue: #19345E;
+  --white: #FFFFFF;
+
+  --font-heading: "Montserrat", sans-serif;
+  --font-ui: "Inter", sans-serif;
+  --font-body: "Roboto", sans-serif;
+
+  --transition: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--white);
+  color: var(--navy);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+}
+
+button,
+.nav-links,
+.logo,
+.btn {
+  font-family: var(--font-ui);
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
