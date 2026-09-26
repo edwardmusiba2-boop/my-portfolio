@@ -135,54 +135,59 @@ const handleSubmit = async (e) => {
                 <div className="contact-icon">
                 <Mail size={22} strokeWidth={2} />
                 </div>
+                <div>
+                <span>Email</span>
+                <a
+                    href="mailto:edwardmusiba2@gmail.com"
+                    className="contact-link"
+                >
+                    edwardmusiba2@gmail.com
+                </a>
+                </div>
+
+                </div>
+
+
+                <div className="contact-item">
+
+                <div className="contact-icon">
+                    <FaGithub size={22} />
+                </div>
 
                 <div>
-                  <span>Email</span>
+                    <span>GitHub</span>
                     <a
-                    href="mailto:edwardmusiba2@gmail.com"
-                    className="contact-email"
+                    href="https://github.com/edwardmusiba2-boop"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-link"
                     >
-                    edwardmusiba2@gmail.com
+                    github.com/edwardmusiba2-boop
                     </a>
                 </div>
 
-              </div>
-
-
-              <div className="contact-item">
-
-                <div className="contact-icon">
-                <FaGithub size={22} />
-                </div>  
-
-                <div>
-                  <span>GitHub</span>
-                  <p>
-                    github.com/edwardmusiba2-boop
-                  </p>
                 </div>
 
-              </div>
 
-
-              <div className="contact-item">
+                <div className="contact-item">
 
                 <div className="contact-icon">
-                <FaLinkedinIn size={22} />
+                    <FaLinkedinIn size={22} />
                 </div>
 
                 <div>
-                  <span>LinkedIn</span>
-                  <p>
-                    linkedin.com/
-                  </p>
+                    <span>LinkedIn</span>
+                    <a
+                    href="https://www.linkedin.com/in/edward-musiba-49b97a330/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-link"
+                    >
+                    linkedin.com/in/edward-musiba-49b97a330
+                    </a>
                 </div>
 
-              </div>
-
-            </div>
-
-
+                </div>
             <div className="contact-note">
 
               <span>
@@ -195,6 +200,7 @@ const handleSubmit = async (e) => {
               </p>
 
             </div>
+        </div>
 
           </ScrollReveal>
 
