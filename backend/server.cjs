@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 require("dotenv").config();
 
 const app = express();
@@ -21,15 +21,7 @@ app.use(express.json());
 // EMAIL CONFIGURATION
 // ================================
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 
 // ================================
@@ -62,31 +54,31 @@ app.post("/api/contact", async (req, res) => {
 
     // Email sent to you
 
-    const mailOptions = {
+      const { data, error } = await resend.emails.send({
+        from: "Portfolio <onboarding@resend.dev>",
+        to: [process.env.EMAIL_USER],
+        replyTo: email,
+        subject: `Portfolio Contact: ${subject}`,
+        text: `
+      New message from your portfolio website.
 
-      from: process.env.EMAIL_USER,
+      Name: ${name}
+      Email: ${email}
+      Subject: ${subject}
 
-      to: process.env.EMAIL_USER,
+      Message:
+      ${message}
+        `,
+      });
 
-      replyTo: email,
+      if (error) {
+        console.error("Resend email error:", error);
 
-      subject: `Portfolio Contact: ${subject}`,
-
-      text: `
-New message from your portfolio website.
-
-Name: ${name}
-Email: ${email}
-Subject: ${subject}
-
-Message:
-${message}
-      `,
-
-    };
-
-
-    await transporter.sendMail(mailOptions);
+        return res.status(500).json({
+          success: false,
+          message: "Failed to send message.",
+        });
+      }
 
 
     res.status(200).json({
